@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text,Button} from 'react-native';
 
-const Search = () => {
+const Search = ({navigation}) => {
   return (
     <View style={styles.center}>
       <Text>This is the Search screen</Text>
+     
     </View>
   );
 };

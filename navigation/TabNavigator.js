@@ -13,7 +13,6 @@ const BottomTabNavigator = () => {
       initialRouteName="Home"
       activeColor="red"
       inactiveColor="black"
-      // eslint-disable-next-line react-native/no-inline-styles
       barStyle={{backgroundColor: 'teal'}}>
       <Tab.Screen
         name="Screen1"
