@@ -17,7 +17,7 @@ const Home = ({navigation}) => {
       source={require('../../assets/images/background.jpg')}
       style={styles.background}>
       <View style={styles.container}>
-        <Text style={styles.title}>{text}Shivam</Text>
+        <Text style={styles.title}>{text} Shivam</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Map')}>
