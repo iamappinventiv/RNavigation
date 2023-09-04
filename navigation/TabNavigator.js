@@ -4,6 +4,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {MainStackNavigator, ContactStackNavigator} from './StackNavigator';
 import Search from '../src/screen/Search';
+import WeatherMap from '../src/screen/Search';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -28,23 +29,14 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
+      
       <Tab.Screen
-        name="Screen2"
-        component={ContactStackNavigator}
+        name="Map"
+        component={WeatherMap}
         options={{
-          tabBarLabel: 'Contact',
+          tabBarLabel: 'MAPS',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Search"
-        component={Search}
-        options={{
-          tabBarLabel: 'SEARCH',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={26} />
+            <MaterialCommunityIcons name="google-maps" color={color} size={26} />
           ),
         }}
       />

@@ -4,7 +4,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../src/screen/Home';
 import About from '../src/screen/About';
 import Contact from '../src/screen/Contact';
-import Search from '../src/screen/Search';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +35,6 @@ const ContactStackNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Contact" component={Contact} />
-    
     </Stack.Navigator>
   );
 };

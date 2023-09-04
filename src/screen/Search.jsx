@@ -1,22 +1,63 @@
-import React from 'react';
-import {View, StyleSheet, Text,Button} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
+import axios from 'axios';
 
-const Search = ({navigation}) => {
+const WeatherMap = () => {
+  const [weatherData, setWeatherData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const apiKey = '0e7f710232889a995a8be5b916136da3';
+        const city = 'MOHALI';
+
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+        );
+        console.log(response.data);
+        setWeatherData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchWeatherData();
+  }, []);
+
   return (
-    <View style={styles.center}>
-      <Text>This is the Search screen</Text>
-     
+    <View style={styles.container}>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: 30.68096,
+          longitude: 76.72725,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}>
+        <Marker
+          coordinate={{
+            latitude: 30.68096,
+            longitude: 76.72725,
+          }}
+          title="Current Weather"
+          description={`Temperature: ${weatherData.main?.temp}°C`}
+        />
+      </MapView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  center: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+  },
+  map: {
+    flex: 1,
   },
 });
 
-export default Search;
+export default WeatherMap;
