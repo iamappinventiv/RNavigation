@@ -11,12 +11,12 @@ const WeatherMap = () => {
     const fetchWeatherData = async () => {
       try {
         const apiKey = '0e7f710232889a995a8be5b916136da3';
-        const city = 'MOHALI';
+        const city = 'Gorakhpur';
 
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`,
         );
-        console.log(response.data);
+        console.log(JSON.stringify(response.data));
         setWeatherData(response.data);
         setLoading(false);
       } catch (error) {
@@ -33,15 +33,15 @@ const WeatherMap = () => {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: 30.68096,
-          longitude: 76.72725,
+          latitude: 28.589041,
+          longitude: 77.301613,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
         <Marker
           coordinate={{
-            latitude: 30.68096,
-            longitude: 76.72725,
+            latitude: 28.589041,
+            longitude: 77.301613,
           }}
           title="Current Weather"
           description={`Temperature: ${weatherData.main?.temp}°C`}

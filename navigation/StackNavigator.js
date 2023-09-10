@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../src/screen/Home';
 import About from '../src/screen/About';
 import Contact from '../src/screen/Contact';
-
+import ProfileScreen from '../src/screen/Profile';
 const Stack = createNativeStackNavigator();
 
 const screenOptionStyle = {
@@ -24,6 +24,7 @@ const MainStackNavigator = () => {
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Search" component={About} />
+      <Stack.Screen name="Profil" component={ProfileScreen} />
     </Stack.Navigator>
   );
 };
@@ -35,6 +36,7 @@ const ContactStackNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Contact" component={Contact} />
+      
     </Stack.Navigator>
   );
 };

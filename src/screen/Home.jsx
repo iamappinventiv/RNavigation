@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 20,
+    fontFamily:'Arial'
   },
   button: {
     backgroundColor: Colors.blue,

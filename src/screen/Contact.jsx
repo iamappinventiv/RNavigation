@@ -1,9 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import axios from 'axios';
+import {fetchAddressData} from '../../Redux/middleware/thunk';
+import {useDispatch, useSelector} from 'react-redux';
 const App = () => {
   const [users, setUsers] = useState([]);
-
+  const dispatch = useDispatch();
+  const address = useSelector(state => state.address);
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -11,12 +14,16 @@ const App = () => {
           'https://jsonplaceholder.typicode.com/users',
         );
         setUsers(response.data);
+        console.log('response ====>', response.data);
       } catch (error) {
         console.log(error);
       }
     };
     getUsers();
   }, []);
+  useEffect(() => {
+    dispatch(fetchAddressData());
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -27,6 +34,12 @@ const App = () => {
           <View style={styles.userContainer}>
             <Text style={styles.userName}>Name: {item.name}</Text>
             <Text style={styles.userEmail}>Phone: {item.phone}</Text>
+            <Text style={styles.userEmail}>Streetname: {address.street_name}</Text>
+            <Text style={styles.userEmail}>Community: {address.community}</Text>
+            <Text style={styles.userEmail}>State: {address.state}</Text>
+            <Text style={styles.userEmail}>Country: {address.country}</Text>
+            <Text style={styles.userEmail}>Time Zone: {address.time_zone}</Text>
+            <Text style={styles.userEmail}>Zip Code: {address.zip_code}</Text>
           </View>
         )}
       />
