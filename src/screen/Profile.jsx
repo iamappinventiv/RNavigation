@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import { fetchUserData} from '../../Redux/middleware/thunk';
+import {fetchUserData} from '../Redux/middleware/thunk';
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,6 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     dispatch(fetchUserData());
-   
   }, [dispatch]);
 
   return (

@@ -1,4 +1,3 @@
-// src/redux/thunks.js
 import axios from 'axios';
 import { setUser } from '../Slices/userSlice';
 import { setAddress } from '../Slices/addressSlice';

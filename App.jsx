@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import store from './Redux/Store/store';
+import store from './src/Redux/Store/store';
 import {Provider} from 'react-redux';
 import DrawerNavigator from './navigation/DrawerNavigator';
 
