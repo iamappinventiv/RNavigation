@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import axios from 'axios';
-import {fetchAddressData} from '../Redux/middleware/thunk';
+import {fetchAddressData} from '../Redux/Middleware/thunk';
 import {useDispatch, useSelector} from 'react-redux';
 const App = () => {
   const [users, setUsers] = useState([]);
